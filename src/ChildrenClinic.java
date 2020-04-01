@@ -33,11 +33,11 @@ public class ChildrenClinic extends Clinic {
     }
 
     @Override
-    public String toString(){
-        return "ChildrenClinic{"+
-                "numberCallHomeDoctor = "+ numberCallHomeDoctor + "," +
-                super.toString()+"}";
-   }
+    public String toString() {
+        return "ChildrenClinic{" +
+                "numberCallHomeDoctor = " + numberCallHomeDoctor + "," +
+                super.toString() + "}";
+    }
 
 
 }

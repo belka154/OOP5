@@ -1,3 +1,1 @@
-public class MyList<T> {
-
-}
+public class MyList<T> { }

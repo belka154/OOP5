@@ -16,15 +16,15 @@ public class DentalClinic extends Clinic {
         return this;
     }
 
-    protected String electronicRecord(){
+    protected String electronicRecord() {
         return "you can make an appointment with the doctor by email " + email;
     }
 
     @Override
-    public String toString(){
-        return "DentalClinic{"+
-                "email = "+ email + "," +
-                super.toString()+"}";
+    public String toString() {
+        return "DentalClinic{" +
+                "email = " + email + "," +
+                super.toString() + "}";
     }
 
 }

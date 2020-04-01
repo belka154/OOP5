@@ -18,6 +18,7 @@ public abstract class Clinic {
         this.hasFreeService = hasFreeService;
         this.hasPaidService = hasPaidService;
         this.staffDoctor = staffDoctor;
+
     }
 
 
