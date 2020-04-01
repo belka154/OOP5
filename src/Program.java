@@ -3,20 +3,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-    //StaffDoctor staffDoctor1;
+
 
     private ArrayList<StaffDoctor> staffDoctor=new ArrayList<>();
 
-    private MyList<StaffDoctor> list = new MyList<StaffDoctor>();
+    //private MyList<StaffDoctor> staffDoctor = new MyList<StaffDoctor>();
 
-    public MyList<StaffDoctor> getList() {
-        return list;
-    }
 
-    public Program setList(MyList<StaffDoctor> list) {
-        this.list = list;
-        return this;
-    }
 
     boolean flag = true;
 
@@ -62,22 +55,9 @@ public class Program {
             programConsole();
         }
     }
-/*String j=null;
-private void addElementOr(){
-        System.out.println(" Doctor or Clinic");
-        String r= scanner();
-        if (r.equalsIgnoreCase("doctod")){
-            j=r;
-            addElement();
-        }else {
 
-        }
-
-}*/
 
     private void addElement() {
-
-//addElementOr();
         System.out.println(" ADD DOCTOR");
         boolean bo = true;
         String e = null;

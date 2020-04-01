@@ -57,20 +57,10 @@ public class MyClinic {
        program.getStaffDoctor().add(staff4);
        program.getStaffDoctor().add(staff5);
 
-//       program.getMyClinics().add(d1);
-//       program.getMyClinics().add(d2);
-//       program.getMyClinics().add(c1);
-//       program.getMyClinics().add(c2);
-//       program.getMyClinics().add(c3);
-//       program.getMyClinics().add(c4);
-
 
        program.process();
 
-       // for (StaffDoctor doctor:program.getStaffDoctor()) {
-         //   System.out.println(doctor);
 
-        //}
 
 
 
