@@ -1,4 +1,4 @@
-public class ProgramExeption extends RuntimeException{
+public class ProgramExeption extends RuntimeException {
     public ProgramExeption() {
     }
 

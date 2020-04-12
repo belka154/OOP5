@@ -3,20 +3,12 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Program {
-    //StaffDoctor staffDoctor1;
 
-    private ArrayList<StaffDoctor> staffDoctor=new ArrayList<>();
 
-    private MyList<StaffDoctor> list = new MyList<StaffDoctor>();
+    private ArrayList<StaffDoctor> staffDoctor = new ArrayList<>();
 
-    public MyList<StaffDoctor> getList() {
-        return list;
-    }
+    //private MyList<StaffDoctor> staffDoctor = new MyList<StaffDoctor>();
 
-    public Program setList(MyList<StaffDoctor> list) {
-        this.list = list;
-        return this;
-    }
 
     boolean flag = true;
 
@@ -38,46 +30,43 @@ public class Program {
         return this;
     }
 
-    private void programConsole(){
-        System.out.println( "Select item: \n 1: add element \n 2: update element \n 3: delete element \n 4: print all \n 5: save to file \n 6: load from file \n 0: exit");
+    private void programConsole() {
+        System.out.println("Select item: \n 1: add element \n 2: update element \n 3: delete element \n 4: print all \n 5: save to file \n 6: load from file \n 0: exit");
         Scanner sc = new Scanner(System.in);
-        int number= sc.nextInt();
-        if (number<0 || number>6){
+        int number = sc.nextInt();
+        if (number < 0 || number > 6) {
             System.err.println("Enter corrected item between 0 and 6 inclusive");
         }
-        switch (number){
-            case 1: addElement();break;
-            case 2: updateElement();break;
-            case 3: deleteElement(); break;
-            case 4: printAll(); break;
-            case 0: exitProgram();break;
+        switch (number) {
+            case 1:
+                addElement();
+                break;
+            case 2:
+                updateElement();
+                break;
+            case 3:
+                deleteElement();
+                break;
+            case 4:
+                printAll();
+                break;
+            case 0:
+                exitProgram();
+                break;
 
             default:
         }
 
     }
 
-    public void process(){
-        while (flag){
+    public void process() {
+        while (flag) {
             programConsole();
         }
     }
-/*String j=null;
-private void addElementOr(){
-        System.out.println(" Doctor or Clinic");
-        String r= scanner();
-        if (r.equalsIgnoreCase("doctod")){
-            j=r;
-            addElement();
-        }else {
 
-        }
-
-}*/
 
     private void addElement() {
-
-//addElementOr();
         System.out.println(" ADD DOCTOR");
         boolean bo = true;
         String e = null;
@@ -136,24 +125,23 @@ private void addElementOr(){
         }
 
         System.out.println("Enter Profession \n 1: PEDIATRICIAN \n 2: OTOLARYNGOLOG \n 3: ALLERGIC \n 4: SURGEON \n 5: ORTOPED \n 6: ORTODONT");
-        String e4 ;
+        String e4;
         boolean bo4 = true;
         while (bo4) {
             e4 = scanner();
             int f = 0;
             try {
                 f = Integer.parseInt(e4);
-                bo4=false;
+                bo4 = false;
             } catch (NumberFormatException ex5) {
                 System.err.println(" Enter numbers between 1 and 6");
             }
 
             if (f < 1 || f > 6) {
                 System.err.println(" Enter correct number");
-                bo4=true;
-            }
-            else {
-                bo4=false;
+                bo4 = true;
+            } else {
+                bo4 = false;
             }
             StaffDoctor.Doctor doctor = null;
             switch (f) {
@@ -184,6 +172,7 @@ private void addElementOr(){
         System.out.println(" RECORDED! \n ");
 
     }
+
     private void updateElement() {
         System.out.println("Enter Doctor index to update between 0 and " + (staffDoctor.size() - 1));
         Scanner s7 = new Scanner(System.in);
@@ -288,34 +277,31 @@ private void addElementOr(){
                 System.out.println(staffDoctor.get(e7));
                 break;
             case 5:
-                    System.out.println("Enter new Profession \n PEDIATRICIAN \n OTOLARYNGOLOG \n ALLERGIC \n SURGEON \n ORTOPED \n ORTODONT");
-                    Scanner sc6 = new Scanner(System.in);
-                    String str3 = sc6.nextLine();
-                    StaffDoctor.Doctor doctor1 = StaffDoctor.Doctor.valueOf(str3);
-                    d.setDoctor(doctor1);
-                    System.out.println(staffDoctor.get(e7));
-                    break;
-                    default:
-                }
+                System.out.println("Enter new Profession \n PEDIATRICIAN \n OTOLARYNGOLOG \n ALLERGIC \n SURGEON \n ORTOPED \n ORTODONT");
+                Scanner sc6 = new Scanner(System.in);
+                String str3 = sc6.nextLine();
+                StaffDoctor.Doctor doctor1 = StaffDoctor.Doctor.valueOf(str3);
+                d.setDoctor(doctor1);
+                System.out.println(staffDoctor.get(e7));
+                break;
+            default:
         }
+    }
 
 
+    private void deleteElement() {
 
+        if (staffDoctor.size() == 0) {
+            System.err.println("Collection is Null / Enter Doctor");
+            return;
+        } else {
 
-    private void deleteElement(){
-
-            if (staffDoctor.size() == 0) {
-                System.err.println("Collection is Null / Enter Doctor");
-               return;
-            }
-            else {
-
-            }
-            System.out.println("Delete element at index");
-        System.out.println("Enter index between 0 and "+ (staffDoctor.size()-1));
-        Scanner s5=new Scanner(System.in);
-        boolean b=true;
-        int e5=0;
+        }
+        System.out.println("Delete element at index");
+        System.out.println("Enter index between 0 and " + (staffDoctor.size() - 1));
+        Scanner s5 = new Scanner(System.in);
+        boolean b = true;
+        int e5 = 0;
         while (b) {
             e5 = s5.nextInt();
             if (e5 < 0) {
@@ -342,24 +328,23 @@ private void addElementOr(){
     }
 
 
+    private void printAll() {
 
-    private void printAll(){
-
-        for ( StaffDoctor doctor: staffDoctor) {
+        for (StaffDoctor doctor : staffDoctor) {
             System.out.println(doctor);
 
         }
 
     }
 
-    private void exitProgram(){
+    private void exitProgram() {
         flag = false;
     }
 
-   private String scanner(){
-        Scanner cs=new Scanner(System.in);
-        String re=cs.nextLine();
+    private String scanner() {
+        Scanner cs = new Scanner(System.in);
+        String re = cs.nextLine();
         return re;
-   }
+    }
 
 }
