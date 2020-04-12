@@ -1,25 +1,35 @@
+import java.util.Scanner;
 
-public class MadeObject {
+public class FactoryClinic {
 
 
-
-    StaffDoctor staffDoctor;
-    ChildrenClinic childrenClinic;
-    Program program;
-    int count = 0;
     MyScanner scanner = new MyScanner();
 
-    public void add() {
-        System.out.println(" 1: DentalClinic \n 2: ChildrenClinic");
-        scanner.scannerInt(1, 2);
-        addClinic(scanner.scannerInt(1, 2));
+
+    public Clinic createClinic() {
+        int i = 0;
+        while (i <= 0 || i > 2) {
+            i = preAdd();
+        }
+
+        return addClinic(i);
     }
+
+
+
+    private int preAdd() {
+        System.out.println(" 1: ChildrenClinic \n 2: DentalClinic");
+        return scanner.scannerInt(1, 2);
+    }
+
+
+
 
 
     public Clinic addClinic(int index) {
 
         System.out.println("Clinic name");
-        String s0 = scanner.scannerString();
+        String so = scanner.scannerString();
 
         System.out.println("Address");
         String s1 = scanner.scannerString();
@@ -34,22 +44,31 @@ public class MadeObject {
             b = true;
         }
 
-
-        System.out.println("hash paid service");
+        System.out.println("hash paid service \n yes \n no");
         String s4 = scanner.scannerString();
         boolean b1 = false;
         if (s4.equals("yes")) {
             b1 = true;
         }
 
-        System.out.println("Number call home doctor");
-        String s5 =scanner.scannerString();
+        String s5=null;
+        String s6=null;
+
+        if (index==1) {
+         System.out.println("Number call home doctor");
+        s5 = scanner.scannerString();
+         }
+          else {
+        System.out.println("e-mail");
+        s6 = scanner.scannerString();
+        }
+
 
 
         if (index == 1) {
-            return new ChildrenClinic(s0, s1, s2, b, b1, s5);
+            return new ChildrenClinic(so, s1, s2, b, b1, s5);
         } else  {
-            return new DentalClinic(s0, s1, s2, b, b1, s5);
+            return new DentalClinic(so, s1, s2, b, b1, s6);
         }
     }
 
