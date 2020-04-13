@@ -1,10 +1,8 @@
-import java.util.Arrays;
-
 public class Program{
 
-    private MyScanner scanner1=new MyScanner();
-    private FactoryClinic factoryClinic=new FactoryClinic();
-    private FactoryArray factoryArray= new FactoryArray();
+    private MyScanner scanner1 = new MyScanner();
+    private FactoryClinic factoryClinic = new FactoryClinic();
+    private FactoryArray<Clinic> factoryArray = new FactoryArray<>();
     private int count=0;
     private boolean flag = true;
 
@@ -39,7 +37,6 @@ public class Program{
         Clinic clinic = factoryClinic.createClinic();
         factoryArray.add(clinic);
         count++;
-
     }
 
 
@@ -139,7 +136,6 @@ public class Program{
                 if (i==s5){
                 factoryArray.getArray()[i]=null;
                 count--;
-                factoryArray.delited();
                     factoryArray.sort();
             }
         }
@@ -152,10 +148,10 @@ public class Program{
 
 
 
+
    private void printAll(){
        for (int i = 0; i < count; i++) {
-           System.out.println(factoryArray.getArray()[i]);
-
+           factoryArray.get(i);
        }
    }
 

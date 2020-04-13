@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public abstract class Clinic {
+public class Clinic {
     private String clinicName;
     private String address;
     private String phoneNumber;

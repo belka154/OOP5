@@ -1,40 +1,38 @@
-import java.util.Arrays;
-
-public class FactoryArray {
+public class FactoryArray <T> {
 
 
     private int count = 0;
     private int capasity = 5;
-    private Clinic[] array = new Clinic[capasity];
+    private T[] array = (T[]) new Object[capasity];
 
-    public Clinic[] getArray() {
+    public T[] getArray() {
         return array;
     }
 
+    public T get(int index) {
+        return array[index];
+    }
 
-    void add(Clinic clinic) {
+
+    void add(T o) {
 
         if (count < getArray().length) {
-            array[count] = clinic;
+            array[count] = o;
         } else {
             capasity = capasity * 2;
-            Clinic[] newArray = new Clinic[capasity];
+            T[] newArray = (T[]) new Object[capasity];
             System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
-            array[count] = clinic;
+            array[count] = o;
         }
 
         count++;
     }
 
-    void delited() {
-        count--;
-    }
-
-
 
 
     void sort() {
+        count--;
         for (int i = 0; i < array.length-1; i++) {
           if(array[i]==null){
               array[i]=array[i+1];
