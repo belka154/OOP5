@@ -2,8 +2,8 @@ public class DentalClinic extends Clinic {
 
     private String email;
 
-    public DentalClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String email, StaffDoctor staffDoctor) {
-        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService, staffDoctor);
+    public DentalClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String email) {
+        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService);
         this.email = email;
     }
 
@@ -16,15 +16,15 @@ public class DentalClinic extends Clinic {
         return this;
     }
 
-    protected String electronicRecord() {
+    protected String electronicRecord(){
         return "you can make an appointment with the doctor by email " + email;
     }
 
     @Override
-    public String toString() {
-        return "DentalClinic{" +
-                "email = " + email + "," +
-                super.toString() + "}";
+    public String toString(){
+        return "Dental clinic"+super.toString()+
+                "email = "+ email +
+                "}";
     }
 
 }

@@ -4,8 +4,8 @@ public class ChildrenClinic extends Clinic {
 
     private String numberCallHomeDoctor;
 
-    public ChildrenClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String numberCallHomeDoctor, StaffDoctor staffDoctor) {
-        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService, staffDoctor);
+    public ChildrenClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String numberCallHomeDoctor) {
+        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService);
         this.numberCallHomeDoctor = numberCallHomeDoctor;
     }
 
@@ -32,12 +32,11 @@ public class ChildrenClinic extends Clinic {
         return Objects.hash(super.hashCode(), numberCallHomeDoctor);
     }
 
+
     @Override
     public String toString() {
-        return "ChildrenClinic{" +
-                "numberCallHomeDoctor = " + numberCallHomeDoctor + "," +
-                super.toString() + "}";
+        return "Children clinic" + super.toString()+
+                "numberCallHomeDoctor=" + numberCallHomeDoctor + "}";
+
     }
-
-
 }

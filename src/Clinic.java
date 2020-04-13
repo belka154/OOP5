@@ -8,16 +8,15 @@ public abstract class Clinic {
     private boolean hasPaidService;
     private String hours;
     private int floors;
-    private StaffDoctor staffDoctor;
 
 
-    public Clinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, StaffDoctor staffDoctor) {
+
+    public Clinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService) {
         this.clinicName = clinicName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.hasFreeService = hasFreeService;
         this.hasPaidService = hasPaidService;
-        this.staffDoctor = staffDoctor;
 
     }
 
@@ -85,15 +84,19 @@ public abstract class Clinic {
         return this;
     }
 
-    public StaffDoctor getStaffDoctor() {
-        return staffDoctor;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Clinic clinic = (Clinic) o;
+        return hasFreeService == clinic.hasFreeService &&
+                hasPaidService == clinic.hasPaidService &&
+                floors == clinic.floors &&
+                clinicName.equals(clinic.clinicName) &&
+                address.equals(clinic.address) &&
+                phoneNumber.equals(clinic.phoneNumber) &&
+                hours.equals(clinic.hours);
     }
-
-    public Clinic setStaffDoctor(StaffDoctor staffDoctor) {
-        this.staffDoctor = staffDoctor;
-        return this;
-    }
-
 
     protected int areaCalculation(int x, int y) {
         return x * y;
@@ -103,24 +106,24 @@ public abstract class Clinic {
         return "Clinic worjk " + hours + " hours";
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Clinic clinic = (Clinic) o;
-        return hasFreeService == clinic.hasFreeService &&
-                hasPaidService == clinic.hasPaidService &&
-                floors == clinic.floors &&
-                Objects.equals(clinicName, clinic.clinicName) &&
-                Objects.equals(address, clinic.address) &&
-                Objects.equals(phoneNumber, clinic.phoneNumber) &&
-                Objects.equals(hours, clinic.hours) &&
-                Objects.equals(staffDoctor, clinic.staffDoctor);
-    }
+
+
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(clinicName, address, phoneNumber, hasFreeService, hasPaidService, hours, floors, staffDoctor);
+        return Objects.hash(clinicName, address, phoneNumber, hasFreeService, hasPaidService, hours, floors);
+    }
+
+    @Override
+    public String toString() {
+        return "{" +
+                "clinicName='" + clinicName + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", hasFreeService=" + hasFreeService +
+                ", hasPaidService=" + hasPaidService +
+                ", ";
     }
 }
 
