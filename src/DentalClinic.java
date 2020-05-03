@@ -2,9 +2,12 @@ public class DentalClinic extends Clinic {
 
     private String email;
 
-    public DentalClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String email) {
-        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService);
+    public DentalClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, int numberOfStaff, String email) {
+        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService, numberOfStaff);
         this.email = email;
+    }
+
+    public DentalClinic() {
     }
 
     public String getEmail() {
@@ -26,5 +29,8 @@ public class DentalClinic extends Clinic {
                 "email = "+ email +
                 "}";
     }
-
+    @Override
+    public String formatFile(){
+        return "d " + super.formatFile()+ "email "+ email+ ";\n";
+    }
 }

@@ -1,0 +1,22 @@
+3;
+c clinicName fh
+ address gfh
+ phoneNumber gfh
+ hasFreeService false
+ hasPaidService false
+ numberOfStaff 6
+ numberCallHomeDoctor fghj;
+c clinicName fh
+ address gfh
+ phoneNumber gfh
+ hasFreeService false
+ hasPaidService false
+ numberOfStaff 6
+ numberCallHomeDoctor fghj;
+d clinicName fghfh
+ address fgh
+ phoneNumber fgh
+ hasFreeService false
+ hasPaidService false
+ numberOfStaff 6
+ email fgh;

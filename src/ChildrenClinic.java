@@ -1,12 +1,16 @@
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ChildrenClinic extends Clinic {
+public class ChildrenClinic extends Clinic implements Serializable {
 
     private String numberCallHomeDoctor;
 
-    public ChildrenClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, String numberCallHomeDoctor) {
-        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService);
+    public ChildrenClinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, int numberOfStaff, String numberCallHomeDoctor) {
+        super(clinicName, address, phoneNumber, hasFreeService, hasPaidService, numberOfStaff);
         this.numberCallHomeDoctor = numberCallHomeDoctor;
+    }
+
+    public ChildrenClinic() {
     }
 
     public String getNumberCallHomeDoctor() {
@@ -38,5 +42,9 @@ public class ChildrenClinic extends Clinic {
         return "Children clinic" + super.toString()+
                 "numberCallHomeDoctor=" + numberCallHomeDoctor + "}";
 
+    }
+    @Override
+    public String formatFile(){
+        return "c " + super.formatFile()+ "numberCallHomeDoctor " + numberCallHomeDoctor + ";\n";
     }
 }

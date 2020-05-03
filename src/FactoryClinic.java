@@ -51,6 +51,9 @@ public class FactoryClinic {
             b1 = true;
         }
 
+        System.out.println("Number of staff");
+        int s7= scanner.scannerInt(0,1000);
+
         String s5=null;
         String s6=null;
 
@@ -66,9 +69,9 @@ public class FactoryClinic {
 
 
         if (index == 1) {
-            return new ChildrenClinic(so, s1, s2, b, b1, s5);
+            return new ChildrenClinic(so, s1, s2, b, b1,s7,s5);
         } else  {
-            return new DentalClinic(so, s1, s2, b, b1, s6);
+            return new DentalClinic(so, s1, s2, b, b1, s7, s6);
         }
     }
 

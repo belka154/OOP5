@@ -1,25 +1,29 @@
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Clinic {
+public class Clinic implements Serializable {
     private String clinicName;
     private String address;
     private String phoneNumber;
     private boolean hasFreeService;
     private boolean hasPaidService;
+    private int numberOfStaff;
     private String hours;
     private int floors;
 
 
 
-    public Clinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService) {
+    public Clinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, int numberOfStaff) {
         this.clinicName = clinicName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.hasFreeService = hasFreeService;
         this.hasPaidService = hasPaidService;
-
+        this.numberOfStaff= numberOfStaff;
     }
 
+    public Clinic() {
+    }
 
     public String getClinicName() {
         return clinicName;
@@ -63,6 +67,15 @@ public class Clinic {
 
     public Clinic setHasPaidService(boolean hasPaidService) {
         this.hasPaidService = hasPaidService;
+        return this;
+    }
+
+    public int getNumberOfStaff() {
+        return numberOfStaff;
+    }
+
+    public Clinic setNumberOfStaff(int numberOfStaff) {
+        this.numberOfStaff = numberOfStaff;
         return this;
     }
 
@@ -123,7 +136,17 @@ public class Clinic {
                 ", phoneNumber='" + phoneNumber + '\'' +
                 ", hasFreeService=" + hasFreeService +
                 ", hasPaidService=" + hasPaidService +
+                ", numberOfStaff=" + numberOfStaff +
                 ", ";
+    }
+
+    public String formatFile(){
+        return "clinicName " + clinicName + "\n " +
+                "address " + address + "\n " +
+                "phoneNumber " + phoneNumber + "\n " +
+                "hasFreeService " + hasFreeService + "\n " +
+                "hasPaidService " + hasPaidService + "\n " +
+                "numberOfStaff " + numberOfStaff + "\n ";
     }
 }
 

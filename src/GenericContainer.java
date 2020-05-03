@@ -1,4 +1,6 @@
-public class FactoryArray <T> {
+import java.util.Arrays;
+
+public class GenericContainer<T> {
 
 
     private int count = 0;
@@ -9,14 +11,22 @@ public class FactoryArray <T> {
         return array;
     }
 
-    public T get(int index) {
+    public int getCount() {
+        return count;
+    }
+
+    public int getCapasity() {
+        return capasity;
+    }
+
+    public T get (int index){
         return array[index];
     }
 
 
-    void add(T o) {
+   public void add(T o) {
 
-        if (count < getArray().length) {
+        if (count < array.length) {
             array[count] = o;
         } else {
             capasity = capasity * 2;
@@ -30,16 +40,12 @@ public class FactoryArray <T> {
     }
 
 
-
-    void sort() {
-        count--;
-        for (int i = 0; i < array.length-1; i++) {
-          if(array[i]==null){
-              array[i]=array[i+1];
-              array[i+1]=null;
-
-}
-
+    public void delite(int index){
+        for (int i=index; i<capasity-1; i++){
+            array[i]=array[i+1];
         }
+        count--;
     }
+
+
 }

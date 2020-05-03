@@ -18,9 +18,7 @@ public class MyScanner {
         }
 
 
-
-
-    public String scannerString(){
+        public String scannerString(){
         String str= cs.nextLine();
         return str;
 
