@@ -43,6 +43,24 @@ public class MyClinic {
        d1.setHours("24");
        d1.myWorkHours();
 
+       FileGenericContainer factoryArray1 = new FileGenericContainer();
+        long start=System.currentTimeMillis();
+        factoryArray1.t1.start();
+        factoryArray1.t2.start();
+        try {
+            factoryArray1.t1.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        try {
+            factoryArray1.t2.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        long end = System.currentTimeMillis();
+        factoryArray1.t1.run();
+        System.out.println("Result " + factoryArray1.ai);
+        System.out.println("Time " + (end-start) +"\n");
 
        Program program = new Program();
 

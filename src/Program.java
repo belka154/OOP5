@@ -1,16 +1,19 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Program{
 
     private MyScanner scanner1 = new MyScanner();
     private FactoryClinic factoryClinic = new FactoryClinic();
     private FileGenericContainer factoryArray = new FileGenericContainer();
-    private int count=0;
     private boolean flag = true;
+
 
 
     private void programConsole(){
         System.out.println( "Select item: \n 1: add element \n 2: update element \n 3: delete element \n 4: print all \n 5: save to file \n 6: load from file \n 7: sort \n 0: exit");
 
-        switch (scanner1.scannerInt(0,6)){
+        switch (scanner1.scannerInt(0,7)){
             case 1: addElement();break;
             case 2: updateElement();break;
             case 3: deleteElement(); break;
@@ -39,7 +42,7 @@ public class Program{
 
         Clinic clinic = factoryClinic.createClinic();
         factoryArray.add(clinic);
-        count++;
+
     }
 
 
@@ -47,13 +50,13 @@ public class Program{
 
     private void updateElement() {
 
-        if (count == 0) {
+        if (factoryArray.getSize() == 0) {
             System.err.println("Add Clinic \n");
             return;
         }
 
-        System.out.println("Enter Clinic index to update between 0 and " + (count - 1));
-        int w = scanner1.scannerInt(0, count - 1);
+        System.out.println("Enter Clinic index to update between 0 and " + (factoryArray.getSize() - 1));
+        int w = scanner1.scannerInt(0, factoryArray.getSize() - 1);
 
 
         System.out.println(factoryArray.get(w) +"\n");
@@ -97,8 +100,18 @@ public class Program{
 
                     }
                     factoryArray.get(w).setHasPaidService(d1); break;
-            case 6: System.out.println("Enter new number of staff");
-                    int ww9=scanner1.scannerInt(0,1000);
+            case 6: boolean bb=true;
+                    int ww9=0;
+                    while (bb){
+                        System.out.println("Enter new number of staff");
+                        String e=scanner1.scannerString();
+                        try {
+                            ww9=Integer.parseInt(e);
+                            bb=false;
+                        }catch (NumberFormatException e1){
+                            System.err.println("Enter number");
+                        }
+                    }
                     factoryArray.get(w).setNumberOfStaff(ww9); break;
 
             case 7:
@@ -125,19 +138,19 @@ public class Program{
 
         private void deleteElement(){
 
-            if (count == 0) {
+            if (factoryArray.getSize() == 0) {
                 System.err.println("Collection is Null / Enter Clinic");
                return;
             }
             else {
                 System.out.println("Delete element at index");
-                System.out.println("Enter index between 0 and " + (count - 1));
+                System.out.println("Enter index between 0 and " + (factoryArray.getSize() - 1));
             }
 
-            int s5=scanner1.scannerInt(0,count-1);
+            int s5=scanner1.scannerInt(0,factoryArray.getSize()-1);
 
             factoryArray.delite(s5);
-            count--;
+            //count--;
 
         System.out.println("Element delited \n ");
 
@@ -150,14 +163,14 @@ public class Program{
 
 
    private void printAll(){
-       for (int i = 0; i < factoryArray.getCount(); i++) {
+       for (int i = 0; i < factoryArray.getSize(); i++) {
            System.out.println(factoryArray.get(i));
        }
    }
 
 
    private void saveToFile() {
-       if (count == 0) {
+       if (factoryArray.getSize() == 0) {
            System.err.println("Добавьте клинику");
            return;
        }
@@ -186,15 +199,26 @@ public class Program{
    }
 
 
-   private void sort(){
+   private void sort() {
+        factoryArray.sort((o1, o2) -> {
+            if (o1.getNumberOfStaff() == o2.getNumberOfStaff()) {
+                return 0;
+            } else if (o1.getNumberOfStaff() < o2.getNumberOfStaff()) {
+                return -1;
 
-   }
+            } else {
+                return 1;
+            }
+        });
+
+           for (int i = 0; i < factoryArray.getSize(); i++) {
+               System.out.println(factoryArray.get(i));
+           }
+    }
 
 
     private void exitProgram(){
         flag = false;
     }
-
-
 
 }

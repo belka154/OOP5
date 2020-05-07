@@ -1,7 +1,7 @@
 import java.io.Serializable;
 import java.util.Objects;
 
-public class Clinic implements Serializable {
+public class Clinic implements Serializable, Comparable<Clinic> {
     private String clinicName;
     private String address;
     private String phoneNumber;
@@ -12,14 +12,13 @@ public class Clinic implements Serializable {
     private int floors;
 
 
-
     public Clinic(String clinicName, String address, String phoneNumber, boolean hasFreeService, boolean hasPaidService, int numberOfStaff) {
         this.clinicName = clinicName;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.hasFreeService = hasFreeService;
         this.hasPaidService = hasPaidService;
-        this.numberOfStaff= numberOfStaff;
+        this.numberOfStaff = numberOfStaff;
     }
 
     public Clinic() {
@@ -120,9 +119,6 @@ public class Clinic implements Serializable {
     }
 
 
-
-
-
     @Override
     public int hashCode() {
         return Objects.hash(clinicName, address, phoneNumber, hasFreeService, hasPaidService, hours, floors);
@@ -140,7 +136,7 @@ public class Clinic implements Serializable {
                 ", ";
     }
 
-    public String formatFile(){
+    public String formatFile() {
         return "clinicName " + clinicName + "\n " +
                 "address " + address + "\n " +
                 "phoneNumber " + phoneNumber + "\n " +
@@ -148,5 +144,19 @@ public class Clinic implements Serializable {
                 "hasPaidService " + hasPaidService + "\n " +
                 "numberOfStaff " + numberOfStaff + "\n ";
     }
-}
+
+    @Override
+    public int compareTo(Clinic o) {
+        if (this.numberOfStaff == o.numberOfStaff) {
+            return 0;
+        } else if (this.numberOfStaff < o.numberOfStaff) {
+            return -1;
+
+        } else {
+            return 1;
+        }
+
+        }
+    }
+
 

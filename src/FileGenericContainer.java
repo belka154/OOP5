@@ -1,13 +1,8 @@
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Arrays;
 
 
 public class FileGenericContainer extends GenericContainer<Clinic> {
@@ -20,14 +15,14 @@ public class FileGenericContainer extends GenericContainer<Clinic> {
         BufferedWriter fileOutputStream = new BufferedWriter(new FileWriter(file));
         FileWriter fileWriter = new FileWriter(file);
 
-        for (int i = 0; i < getCount(); i++) {
+        for (int i = 0; i < getSize(); i++) {
             if (get(i) != null) {
                 count++;
             }
         }
 
         fileOutputStream.write(count + ";" + "\n");
-        for (int i = 0; i < getCount(); i++) {
+        for (int i = 0; i < getSize(); i++) {
             if (get(i) != null) {
                 String str = get(i).formatFile();
                 fileOutputStream.write(str);
@@ -85,7 +80,7 @@ public class FileGenericContainer extends GenericContainer<Clinic> {
         }
 
     private void setter(String[] array1, Clinic clinic) {
-        Boolean b;
+        boolean b;
         clinic.setClinicName(array1[2]);
         clinic.setAddress(array1[4]);
         clinic.setPhoneNumber(array1[6]);

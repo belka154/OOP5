@@ -16,13 +16,10 @@ public class FactoryClinic {
     }
 
 
-
     private int preAdd() {
         System.out.println(" 1: ChildrenClinic \n 2: DentalClinic");
         return scanner.scannerInt(1, 2);
     }
-
-
 
 
 
@@ -52,7 +49,17 @@ public class FactoryClinic {
         }
 
         System.out.println("Number of staff");
-        int s7= scanner.scannerInt(0,1000);
+        int s7=0;
+        boolean bb=true;
+        while (bb){
+            String w=scanner.scannerString();
+         try {
+             s7=Integer.parseInt(w);
+             bb=false;
+         } catch (NumberFormatException e){
+             System.err.println("Введите число");
+         }
+        }
 
         String s5=null;
         String s6=null;
