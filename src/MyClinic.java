@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Arrays;
 
 public class MyClinic {
@@ -23,64 +24,13 @@ public class MyClinic {
         Clinic d2 = new DentalClinic("Dental Children", "Mazurova 11", "78 - 89 - 22", false, true, 7,"NashaDental4@mail.ru");
 
 
-        c1.areaCalculation(5647,9785);
-        c4.areaCalculation(1254,2554);
-        d1.areaCalculation(1258,5456);
 
-
-        c1.setFloors(32);
-        c2.setFloors(45);
-        c4.setFloors(36);
-
-        d1.setFloors(25);
-        d2.setFloors(35);
-
-       staff.setLastName("Begemotov");
-
-       c4.setHours("12");
-       c4.myWorkHours();
-
-       d1.setHours("24");
-       d1.myWorkHours();
-
-       FileGenericContainer factoryArray1 = new FileGenericContainer();
-        long start=System.currentTimeMillis();
-        factoryArray1.t1.start();
-        factoryArray1.t2.start();
         try {
-            factoryArray1.t1.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            Program program = new Program();
+            program.process();
         }
-        try {
-            factoryArray1.t2.join();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            catch (IOException e){
         }
-        long end = System.currentTimeMillis();
-        factoryArray1.t1.run();
-        System.out.println("Result " + factoryArray1.ai);
-        System.out.println("Time " + (end-start) +"\n");
-
-       Program program = new Program();
-
-
-
-       /*program.getStaffDoctor().createClinic(staff);
-       program.getStaffDoctor().createClinic(staff1);
-       program.getStaffDoctor().createClinic(staff2);
-       program.getStaffDoctor().createClinic(staff3);
-       program.getStaffDoctor().createClinic(staff4);
-       program.getStaffDoctor().createClinic(staff5);*/
-
-
-       program.process();
-
-
-
-
-
-
-
     }
 }
+

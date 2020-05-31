@@ -11,9 +11,7 @@ public class MyScanner {
             cs.nextLine();
             if (i < a || i > b) {
                 System.err.println(" Enter correcter numbers \n ");
-
             }
-
             return i;
         }
 
@@ -21,8 +19,5 @@ public class MyScanner {
         public String scannerString(){
         String str= cs.nextLine();
         return str;
-
     }
-
-
 }

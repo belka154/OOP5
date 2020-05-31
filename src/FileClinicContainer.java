@@ -3,14 +3,17 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 
-public class FileGenericContainer extends GenericContainer<Clinic> {
+public class FileClinicContainer extends GenericContainer<Clinic> {
 
     int count = 0;
 
-    public void write(String a) throws Exception {
+    public FileClinicContainer() {
+    }
 
+    public void write(String a) throws Exception {
         File file = new File(a);
         BufferedWriter fileOutputStream = new BufferedWriter(new FileWriter(file));
         FileWriter fileWriter = new FileWriter(file);
@@ -30,8 +33,6 @@ public class FileGenericContainer extends GenericContainer<Clinic> {
         }
         fileWriter.close();
         fileOutputStream.close();
-
-
     }
 
 
@@ -71,13 +72,9 @@ public class FileGenericContainer extends GenericContainer<Clinic> {
                     setter(array1, clinic1);
                     clinic1.setEmail(array1[14]);
                     add(clinic1);
-
-                }
-
-
             }
-
         }
+    }
 
     private void setter(String[] array1, Clinic clinic) {
         boolean b;

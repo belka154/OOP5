@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 /*MyScanner scanner=new MyScanner();
-        FactoryClinic factoryClinic=new FactoryClinic();
+        ClinicFactory factoryClinic=new ClinicFactory();
 
 private  Clinic[] array= new Clinic[100];
 
